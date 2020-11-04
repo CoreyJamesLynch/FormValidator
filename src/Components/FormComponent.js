@@ -1,4 +1,5 @@
 import React from 'react';
+
 import './FormComponent.css';
 
 class FormComponent extends React.Component {
@@ -14,10 +15,7 @@ class FormComponent extends React.Component {
   };
 
   render() {
-    const { username } = this.state;
-    const { email } = this.state;
-    const { password } = this.state;
-    const { password2 } = this.state;
+    const { username, email, password, password2 } = this.state;
     return (
       <div className="container">
         <form id="form" className="form">
@@ -81,7 +79,7 @@ class FormComponent extends React.Component {
               <small>Error Message</small>
             </label>
           </div>
-          <button type="submit">Submit</button>
+          <button type="button">Submit</button>
         </form>
       </div>
     );
