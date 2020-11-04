@@ -1,4 +1,5 @@
 import React from 'react';
+import './App.css';
 
 class App extends React.Component {
   state = {
@@ -21,57 +22,65 @@ class App extends React.Component {
       <div className="container">
         <form id="form" className="form">
           <h2>Register With Us</h2>
-          <label htmlFor="username">
-            Username
-            <input
-              type="text"
-              id="username"
-              placeholder="Enter username"
-              name="username"
-              value={username}
-              onChange={this.clickHandler}
-            />
-          </label>
-          <small>Error Message</small>
+          <div className="form-control">
+            <label htmlFor="username">
+              Username
+              <input
+                type="text"
+                id="username"
+                placeholder="Enter username"
+                name="username"
+                value={username}
+                onChange={this.clickHandler}
+              />
+              <small>Error Message</small>
+            </label>
+          </div>
 
-          <label htmlFor="email">
-            Email
-            <input
-              type="email"
-              id="email"
-              placeholder="Enter email"
-              name="email"
-              value={email}
-              onChange={this.clickHandler}
-            />
-          </label>
-          <small>Error Message</small>
+          <div className="form-control">
+            <label htmlFor="email">
+              Email
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter email"
+                name="email"
+                value={email}
+                onChange={this.clickHandler}
+              />
+              <small>Error Message</small>
+            </label>
+          </div>
 
-          <label htmlFor="password">
-            Password
-            <input
-              type="password"
-              id="password"
-              placeholder="Enter password"
-              name="password"
-              value={password}
-              onChange={this.clickHandler}
-            />
-          </label>
-          <small>Error Message</small>
+          <div className="form-control">
+            <label htmlFor="password">
+              Password
+              <input
+                type="password"
+                id="password"
+                placeholder="Enter password"
+                name="password"
+                value={password}
+                onChange={this.clickHandler}
+              />
+              <small>Error Message</small>
+            </label>
+          </div>
 
-          <label htmlFor="password2">
-            Confirm Password
-            <input
-              type="password"
-              id="password2"
-              placeholder="Confirm password"
-              name="password2"
-              value={password2}
-              onChange={this.clickHandler}
-            />
-          </label>
-          <small>Error Message</small>
+          <div className="form-control">
+            <label htmlFor="password2">
+              Confirm Password
+              <input
+                type="password"
+                id="password2"
+                placeholder="Confirm password"
+                name="password2"
+                value={password2}
+                onChange={this.clickHandler}
+              />
+              <small>Error Message</small>
+            </label>
+          </div>
           <button type="submit">Submit</button>
         </form>
       </div>
