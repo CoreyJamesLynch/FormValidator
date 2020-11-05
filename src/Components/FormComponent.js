@@ -4,7 +4,7 @@ import { useForm } from 'react-hook-form';
 import './FormComponent.css';
 
 const FormComponent = () => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, errors } = useForm();
   const onSubmit = (data) => {
     console.log(data);
   };
@@ -23,7 +23,15 @@ const FormComponent = () => {
               placeholder="Enter username"
               name="username"
             />
-            <small>Error Message</small>
+            {errors.username && errors.username.type === 'required' && (
+              <small>This is required</small>
+            )}
+            {errors.username && errors.username.type === 'minLength' && (
+              <small>Minimum length 3</small>
+            )}
+            {errors.username && errors.username.type === 'maxLength' && (
+              <small>Max length 15</small>
+            )}
           </label>
         </div>
 
@@ -37,7 +45,7 @@ const FormComponent = () => {
               placeholder="Enter email"
               name="email"
             />
-            <small>Error Message</small>
+            {errors.email && <small>This is required</small>}
           </label>
         </div>
 
@@ -51,7 +59,15 @@ const FormComponent = () => {
               placeholder="Enter password"
               name="password"
             />
-            <small>Error Message</small>
+            {errors.password && errors.password.type === 'required' && (
+              <small>This is required</small>
+            )}
+            {errors.password && errors.password.type === 'minLength' && (
+              <small>Minimum length 6</small>
+            )}
+            {errors.password && errors.password.type === 'maxLength' && (
+              <small>Max length 25</small>
+            )}
           </label>
         </div>
 
@@ -65,7 +81,7 @@ const FormComponent = () => {
               placeholder="Confirm password"
               name="password2"
             />
-            <small>Error Message</small>
+            {errors.password2 && <small>This is required</small>}
           </label>
         </div>
         <button type="submit">Submit</button>
