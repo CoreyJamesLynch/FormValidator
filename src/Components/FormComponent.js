@@ -1,89 +1,77 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 
 import './FormComponent.css';
 
-class FormComponent extends React.Component {
-  state = {
-    username: '',
-    email: '',
-    password: '',
-    password2: '',
+const FormComponent = () => {
+  const { register, handleSubmit } = useForm();
+  const onSubmit = (data) => {
+    console.log(data);
   };
 
-  clickHandler = (event) => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
+  return (
+    <div className="container">
+      <form id="form" className="form" onSubmit={handleSubmit(onSubmit)}>
+        <h2>Register With Us</h2>
+        <div className="form-control">
+          <label htmlFor="username">
+            Username
+            <input
+              ref={register({ required: true, minLength: 3, maxLength: 15 })}
+              type="text"
+              id="username"
+              placeholder="Enter username"
+              name="username"
+            />
+            <small>Error Message</small>
+          </label>
+        </div>
 
-  render() {
-    const { username, email, password, password2 } = this.state;
-    return (
-      <div className="container">
-        <form id="form" className="form">
-          <h2>Register With Us</h2>
-          <div className="form-control">
-            <label htmlFor="username">
-              Username
-              <input
-                type="text"
-                id="username"
-                placeholder="Enter username"
-                name="username"
-                value={username}
-                onChange={this.clickHandler}
-              />
-              <small>Error Message</small>
-            </label>
-          </div>
+        <div className="form-control">
+          <label htmlFor="email">
+            Email
+            <input
+              ref={register({ required: true })}
+              type="email"
+              id="email"
+              placeholder="Enter email"
+              name="email"
+            />
+            <small>Error Message</small>
+          </label>
+        </div>
 
-          <div className="form-control">
-            <label htmlFor="email">
-              Email
-              <input
-                type="email"
-                id="email"
-                placeholder="Enter email"
-                name="email"
-                value={email}
-                onChange={this.clickHandler}
-              />
-              <small>Error Message</small>
-            </label>
-          </div>
+        <div className="form-control">
+          <label htmlFor="password">
+            Password
+            <input
+              ref={register({ required: true, minLength: 6, maxLength: 25 })}
+              type="password"
+              id="password"
+              placeholder="Enter password"
+              name="password"
+            />
+            <small>Error Message</small>
+          </label>
+        </div>
 
-          <div className="form-control">
-            <label htmlFor="password">
-              Password
-              <input
-                type="password"
-                id="password"
-                placeholder="Enter password"
-                name="password"
-                value={password}
-                onChange={this.clickHandler}
-              />
-              <small>Error Message</small>
-            </label>
-          </div>
-
-          <div className="form-control">
-            <label htmlFor="password2">
-              Confirm Password
-              <input
-                type="password"
-                id="password2"
-                placeholder="Confirm password"
-                name="password2"
-                value={password2}
-                onChange={this.clickHandler}
-              />
-              <small>Error Message</small>
-            </label>
-          </div>
-          <button type="button">Submit</button>
-        </form>
-      </div>
-    );
-  }
-}
+        <div className="form-control">
+          <label htmlFor="password2">
+            Confirm Password
+            <input
+              ref={register({ required: true })}
+              type="password"
+              id="password2"
+              placeholder="Confirm password"
+              name="password2"
+            />
+            <small>Error Message</small>
+          </label>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+};
 
 export default FormComponent;
