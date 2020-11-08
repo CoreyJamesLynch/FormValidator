@@ -145,9 +145,6 @@ const FormComponent = () => {
         </div>
 
         <button type="submit">Submit</button>
-        {formState.isSubmitted && (
-          <div className="success">Form successfully sent. Thank You!</div>
-        )}
       </form>
     </div>
   );
