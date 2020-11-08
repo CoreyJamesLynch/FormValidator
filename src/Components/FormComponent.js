@@ -4,17 +4,23 @@ import { useForm } from 'react-hook-form';
 import './FormComponent.css';
 
 const FormComponent = () => {
-  const { register, handleSubmit, errors, watch } = useForm();
+  const { register, handleSubmit, errors, formState, watch } = useForm({
+    mode: 'onBlur',
+  });
+
   const password = useRef({});
   password.current = watch('password', '');
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const onSubmit = (data, event) => {
+    event.target.reset();
+    console.log(formState);
   };
 
   return (
     <div className="container">
       <form id="form" className="form" onSubmit={handleSubmit(onSubmit)}>
         <h2>Register With Us</h2>
+
         <div className="form-control">
           <label htmlFor="username">
             Username
@@ -32,6 +38,7 @@ const FormComponent = () => {
               id="username"
               placeholder="Enter username"
               name="username"
+              disabled={formState.isSubmitting}
             />
             {errors.username && errors.username.type === 'required' && (
               <small>Username is required</small>
@@ -63,6 +70,7 @@ const FormComponent = () => {
               id="email"
               placeholder="Enter email"
               name="email"
+              disabled={formState.isSubmitting}
             />
             {errors.email && errors.email.type === 'required' && (
               <small>Email is required</small>
@@ -91,6 +99,7 @@ const FormComponent = () => {
               id="password"
               placeholder="Enter password"
               name="password"
+              disabled={formState.isSubmitting}
             />
             {errors.password && errors.password.type === 'required' && (
               <small>Password is required</small>
@@ -124,6 +133,7 @@ const FormComponent = () => {
               id="password2"
               placeholder="Confirm password"
               name="password2"
+              disabled={formState.isSubmitting}
             />
             {errors.password2 && errors.password2.type === 'required' && (
               <small>Password is required</small>
@@ -133,7 +143,11 @@ const FormComponent = () => {
             )}
           </label>
         </div>
+
         <button type="submit">Submit</button>
+        {formState.isSubmitted && (
+          <div className="success">Form successfully sent. Thank You!</div>
+        )}
       </form>
     </div>
   );
