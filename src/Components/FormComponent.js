@@ -19,20 +19,31 @@ const FormComponent = () => {
           <label htmlFor="username">
             Username
             <input
-              ref={register({ required: true, minLength: 3, maxLength: 15 })}
+              ref={register({
+                required: true,
+                minLength: 3,
+                maxLength: 15,
+                pattern: /^[A-Za-z]+$/i,
+              })}
+              style={{
+                border: errors.username ? '1px solid red' : '',
+              }}
               type="text"
               id="username"
               placeholder="Enter username"
               name="username"
             />
             {errors.username && errors.username.type === 'required' && (
-              <small>A username is required</small>
+              <small>Username is required</small>
+            )}
+            {errors.username && errors.username.type === 'pattern' && (
+              <small>Only A-Z a-z characters are valid</small>
             )}
             {errors.username && errors.username.type === 'minLength' && (
-              <small>Your username must have atleast least 3 characters</small>
+              <small>Username must have atleast least 3 characters</small>
             )}
             {errors.username && errors.username.type === 'maxLength' && (
-              <small>Your username cannot be longer than 15 characters</small>
+              <small>Username cannot be longer than 15 characters</small>
             )}
           </label>
         </div>
@@ -41,13 +52,24 @@ const FormComponent = () => {
           <label htmlFor="email">
             Email
             <input
-              ref={register({ required: true })}
-              type="email"
+              ref={register({
+                required: true,
+                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              })}
+              style={{
+                border: errors.email ? '1px solid red' : '',
+              }}
+              type="text"
               id="email"
               placeholder="Enter email"
               name="email"
             />
-            {errors.email && <small>A email is required</small>}
+            {errors.email && errors.email.type === 'required' && (
+              <small>Email is required</small>
+            )}
+            {errors.email && errors.email.type === 'pattern' && (
+              <small>Email must be valid i.e. example@example.com </small>
+            )}
           </label>
         </div>
 
@@ -56,14 +78,27 @@ const FormComponent = () => {
             Password
             <input
               className="Error"
-              ref={register({ required: true, minLength: 6, maxLength: 25 })}
+              ref={register({
+                required: true,
+                minLength: 6,
+                maxLength: 25,
+                pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/,
+              })}
+              style={{
+                border: errors.password ? '1px solid red' : '',
+              }}
               type="password"
               id="password"
               placeholder="Enter password"
               name="password"
             />
             {errors.password && errors.password.type === 'required' && (
-              <small>A password is required</small>
+              <small>Password is required</small>
+            )}
+            {errors.password && errors.password.type === 'pattern' && (
+              <small>
+                Password must contain: Lowercase, Uppercase, Number, Symbol.
+              </small>
             )}
             {errors.password && errors.password.type === 'minLength' && (
               <small>Minimum length 6</small>
@@ -82,13 +117,16 @@ const FormComponent = () => {
                 required: true,
                 validate: (value) => value === password.current,
               })}
+              style={{
+                border: errors.password2 ? '1px solid red' : '',
+              }}
               type="password"
               id="password2"
               placeholder="Confirm password"
               name="password2"
             />
             {errors.password2 && errors.password2.type === 'required' && (
-              <small>A password is required</small>
+              <small>Password is required</small>
             )}
             {errors.password2 && errors.password2.type === 'validate' && (
               <small>Passwords must match</small>
