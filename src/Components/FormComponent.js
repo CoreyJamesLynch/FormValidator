@@ -13,7 +13,6 @@ const FormComponent = () => {
 
   const onSubmit = (data, event) => {
     event.target.reset();
-    console.log(formState);
   };
 
   return (

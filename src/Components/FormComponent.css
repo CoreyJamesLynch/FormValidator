@@ -1,13 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
-
-* {
-  box-sizing: border-box;
-}
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
 
 body {
   background-color: rgb(58, 54, 54);
-  /* background-color: #f9fafb; */
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,22 +22,22 @@ label {
 }
 
 input {
-  background-color:#313a41;
+  background-color: #313a41;
   color: rgb(236, 207, 152);
+}
+
+input:focus {
+  outline: none;
 }
 
 h2 {
   text-align: center;
   margin: 0 0 20px;
-  color: rgb(221, 187, 34)
+  color: rgb(221, 187, 34);
 }
 
 .form {
   padding: 30px 40px;
-}
-
-.success {
-  color: green
 }
 
 .form-control {
@@ -52,9 +47,8 @@ h2 {
 }
 
 .form-control input {
-  border: 2px solid #f0f0f0;
+  border: 2px solid rgb(236, 207, 152);
   border-radius: 4px;
-  display: block;
   width: 100%;
   padding: 10px;
   font-size: 14px;
