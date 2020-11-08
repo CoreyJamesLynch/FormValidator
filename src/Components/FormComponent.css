@@ -1,10 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
-:root {
-  --success-color: green;
-  --error-color: red;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -63,7 +58,6 @@ h2 {
   position: absolute;
   bottom: 0;
   left: 0;
-  /* visibility: hidden; */
 }
 
 .form-control.error small {
