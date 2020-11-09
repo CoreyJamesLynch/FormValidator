@@ -18,7 +18,7 @@ const PasswordInput = ({ errors, register }) => {
             required: true,
             minLength: 6,
             maxLength: 25,
-            pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]$/,
+            pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/,
           })}
         />
         {errors.password && errors.password.type === 'required' && (
