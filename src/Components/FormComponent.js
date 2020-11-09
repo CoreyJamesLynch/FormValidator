@@ -2,10 +2,10 @@ import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 
 import './FormComponent.css';
+import UserInput from './UserInput';
 
 const FormComponent = () => {
   const { register, handleSubmit, errors, watch } = useForm();
-
   const password = useRef({});
   password.current = watch('password', '');
 
@@ -18,37 +18,7 @@ const FormComponent = () => {
       <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <h2>Register With Us</h2>
 
-        <div className="form-control">
-          <label htmlFor="username">
-            Username
-            <input
-              type="text"
-              placeholder="Enter username"
-              name="username"
-              style={{
-                border: errors.username ? '1px solid red' : '',
-              }}
-              ref={register({
-                required: true,
-                minLength: 3,
-                maxLength: 15,
-                pattern: /^[A-Za-z]+$/i,
-              })}
-            />
-            {errors.username && errors.username.type === 'required' && (
-              <small>Username is required</small>
-            )}
-            {errors.username && errors.username.type === 'pattern' && (
-              <small>Only A-Z a-z characters are valid</small>
-            )}
-            {errors.username && errors.username.type === 'minLength' && (
-              <small>Username must have atleast least 3 characters</small>
-            )}
-            {errors.username && errors.username.type === 'maxLength' && (
-              <small>Username cannot be longer than 15 characters</small>
-            )}
-          </label>
-        </div>
+        <UserInput errors={errors} register={register} />
 
         <div className="form-control">
           <label htmlFor="email">
