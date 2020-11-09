@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 
 import './FormComponent.css';
 import UserInput from './UserInput';
+import EmailInput from './EmailInput';
 
 const FormComponent = () => {
   const { register, handleSubmit, errors, watch } = useForm();
@@ -19,30 +20,7 @@ const FormComponent = () => {
         <h2>Register With Us</h2>
 
         <UserInput errors={errors} register={register} />
-
-        <div className="form-control">
-          <label htmlFor="email">
-            Email
-            <input
-              type="text"
-              placeholder="Enter email"
-              name="email"
-              style={{
-                border: errors.email ? '1px solid red' : '',
-              }}
-              ref={register({
-                required: true,
-                pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              })}
-            />
-            {errors.email && errors.email.type === 'required' && (
-              <small>Email is required</small>
-            )}
-            {errors.email && errors.email.type === 'pattern' && (
-              <small>Email must be valid i.e. example@example.com </small>
-            )}
-          </label>
-        </div>
+        <EmailInput errors={errors} register={register} />
 
         <div className="form-control">
           <label htmlFor="password">
