@@ -27,10 +27,10 @@ const UserInput = ({ errors, register }) => {
           <small>Only A-Z a-z characters are valid</small>
         )}
         {errors.username && errors.username.type === 'minLength' && (
-          <small>Username must have atleast least 3 characters</small>
+          <small>Minimum length 3</small>
         )}
         {errors.username && errors.username.type === 'maxLength' && (
-          <small>Username cannot be longer than 15 characters</small>
+          <small>Maximum length 15</small>
         )}
       </label>
     </div>
