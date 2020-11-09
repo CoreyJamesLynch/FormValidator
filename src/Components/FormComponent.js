@@ -4,9 +4,7 @@ import { useForm } from 'react-hook-form';
 import './FormComponent.css';
 
 const FormComponent = () => {
-  const { register, handleSubmit, errors, formState, watch } = useForm({
-    mode: 'onBlur',
-  });
+  const { register, handleSubmit, errors, watch } = useForm();
 
   const password = useRef({});
   password.current = watch('password', '');
@@ -17,27 +15,25 @@ const FormComponent = () => {
 
   return (
     <div className="container">
-      <form id="form" className="form" onSubmit={handleSubmit(onSubmit)}>
+      <form className="form" onSubmit={handleSubmit(onSubmit)}>
         <h2>Register With Us</h2>
 
         <div className="form-control">
           <label htmlFor="username">
             Username
             <input
+              type="text"
+              placeholder="Enter username"
+              name="username"
+              style={{
+                border: errors.username ? '1px solid red' : '',
+              }}
               ref={register({
                 required: true,
                 minLength: 3,
                 maxLength: 15,
                 pattern: /^[A-Za-z]+$/i,
               })}
-              style={{
-                border: errors.username ? '1px solid red' : '',
-              }}
-              type="text"
-              id="username"
-              placeholder="Enter username"
-              name="username"
-              disabled={formState.isSubmitting}
             />
             {errors.username && errors.username.type === 'required' && (
               <small>Username is required</small>
@@ -58,18 +54,16 @@ const FormComponent = () => {
           <label htmlFor="email">
             Email
             <input
+              type="text"
+              placeholder="Enter email"
+              name="email"
+              style={{
+                border: errors.email ? '1px solid red' : '',
+              }}
               ref={register({
                 required: true,
                 pattern: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
               })}
-              style={{
-                border: errors.email ? '1px solid red' : '',
-              }}
-              type="text"
-              id="email"
-              placeholder="Enter email"
-              name="email"
-              disabled={formState.isSubmitting}
             />
             {errors.email && errors.email.type === 'required' && (
               <small>Email is required</small>
@@ -85,20 +79,18 @@ const FormComponent = () => {
             Password
             <input
               className="Error"
+              type="password"
+              placeholder="Enter password"
+              name="password"
+              style={{
+                border: errors.password ? '1px solid red' : '',
+              }}
               ref={register({
                 required: true,
                 minLength: 6,
                 maxLength: 25,
                 pattern: /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/,
               })}
-              style={{
-                border: errors.password ? '1px solid red' : '',
-              }}
-              type="password"
-              id="password"
-              placeholder="Enter password"
-              name="password"
-              disabled={formState.isSubmitting}
             />
             {errors.password && errors.password.type === 'required' && (
               <small>Password is required</small>
@@ -121,18 +113,16 @@ const FormComponent = () => {
           <label htmlFor="password2">
             Confirm Password
             <input
+              type="password"
+              placeholder="Confirm password"
+              name="password2"
+              style={{
+                border: errors.password2 ? '1px solid red' : '',
+              }}
               ref={register({
                 required: true,
                 validate: (value) => value === password.current,
               })}
-              style={{
-                border: errors.password2 ? '1px solid red' : '',
-              }}
-              type="password"
-              id="password2"
-              placeholder="Confirm password"
-              name="password2"
-              disabled={formState.isSubmitting}
             />
             {errors.password2 && errors.password2.type === 'required' && (
               <small>Password is required</small>
