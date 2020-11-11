@@ -1,12 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FormControl, {
+  FormControlInput,
+  FormControlSmall,
+} from './StyledFormComponent';
+
 const Password2Input = ({ password, errors, register }) => {
   return (
-    <div className="form-control">
+    <FormControl>
       <label htmlFor="password2">
         Confirm Password
-        <input
+        <FormControlInput
           type="password"
           placeholder="Confirm password"
           name="password2"
@@ -19,13 +24,13 @@ const Password2Input = ({ password, errors, register }) => {
           })}
         />
         {errors.password2 && errors.password2.type === 'required' && (
-          <small>Password is required</small>
+          <FormControlSmall>Password is required</FormControlSmall>
         )}
         {errors.password2 && errors.password2.type === 'validate' && (
-          <small>Passwords must match</small>
+          <FormControlSmall>Passwords must match</FormControlSmall>
         )}
       </label>
-    </div>
+    </FormControl>
   );
 };
 
