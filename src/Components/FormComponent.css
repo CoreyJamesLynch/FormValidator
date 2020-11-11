@@ -40,13 +40,6 @@ h2 {
   padding: 30px 40px;
 }
 
-.form-control small {
-  color: red;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-}
-
 .form button {
   cursor: pointer;
   background-color: #313a41;
