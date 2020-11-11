@@ -40,19 +40,19 @@ h2 {
   padding: 30px 40px;
 }
 
-.form-control {
+/* .form-control {
   margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
-}
+} */
 
-.form-control input {
+/* .form-control input {
   border: 2px solid rgb(236, 207, 152);
   border-radius: 4px;
   width: 100%;
   padding: 10px;
   font-size: 14px;
-}
+} */
 
 .form-control small {
   color: red;

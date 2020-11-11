@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FormControl, { FormControlInput } from './StyledFormComponent';
+
 const PasswordInput = ({ errors, register }) => {
   return (
-    <div className="form-control">
+    <FormControl>
       <label htmlFor="password">
         Password
-        <input
-          className="Error"
+        <FormControlInput
           type="password"
           placeholder="Enter password"
           name="password"
@@ -36,7 +37,7 @@ const PasswordInput = ({ errors, register }) => {
           <small>Max length 25</small>
         )}
       </label>
-    </div>
+    </FormControl>
   );
 };
 
