@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FormControl, { FormControlInput } from './StyledFormComponent';
+import FormControl, {
+  FormControlInput,
+  FormControlSmall,
+} from './StyledFormComponent';
 
 const UserInput = ({ errors, register }) => {
   return (
@@ -23,16 +26,16 @@ const UserInput = ({ errors, register }) => {
           })}
         />
         {errors.username && errors.username.type === 'required' && (
-          <small>Username is required</small>
+          <FormControlSmall>Username is required</FormControlSmall>
         )}
         {errors.username && errors.username.type === 'pattern' && (
-          <small>Only A-Z a-z characters are valid</small>
+          <FormControlSmall>Only A-Z a-z characters are valid</FormControlSmall>
         )}
         {errors.username && errors.username.type === 'minLength' && (
-          <small>Minimum length 3</small>
+          <FormControlSmall>Minimum length 3</FormControlSmall>
         )}
         {errors.username && errors.username.type === 'maxLength' && (
-          <small>Maximum length 15</small>
+          <FormControlSmall>Maximum length 15</FormControlSmall>
         )}
       </label>
     </FormControl>

@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FormControl, { FormControlInput } from './StyledFormComponent';
+import FormControl, {
+  FormControlInput,
+  FormControlSmall,
+} from './StyledFormComponent';
 
 const Password2Input = ({ password, errors, register }) => {
   return (
@@ -21,10 +24,10 @@ const Password2Input = ({ password, errors, register }) => {
           })}
         />
         {errors.password2 && errors.password2.type === 'required' && (
-          <small>Password is required</small>
+          <FormControlSmall>Password is required</FormControlSmall>
         )}
         {errors.password2 && errors.password2.type === 'validate' && (
-          <small>Passwords must match</small>
+          <FormControlSmall>Passwords must match</FormControlSmall>
         )}
       </label>
     </FormControl>

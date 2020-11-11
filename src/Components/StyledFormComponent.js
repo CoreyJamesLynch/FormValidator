@@ -14,5 +14,12 @@ const FormControlInput = styled.input`
   font-size: 14px;
 `;
 
+const FormControlSmall = styled.small`
+  color: red;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+`;
+
 export default FormControl;
-export { FormControlInput };
+export { FormControlInput, FormControlSmall };

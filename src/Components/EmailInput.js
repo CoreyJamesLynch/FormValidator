@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import FormControl, { FormControlInput } from './StyledFormComponent';
+import FormControl, {
+  FormControlInput,
+  FormControlSmall,
+} from './StyledFormComponent';
 
 const EmailInput = ({ errors, register }) => {
   return (
@@ -21,10 +24,12 @@ const EmailInput = ({ errors, register }) => {
           })}
         />
         {errors.email && errors.email.type === 'required' && (
-          <small>Email is required</small>
+          <FormControlSmall>Email is required</FormControlSmall>
         )}
         {errors.email && errors.email.type === 'pattern' && (
-          <small>Email must be valid i.e. example@example.com </small>
+          <FormControlSmall>
+            Email must be valid i.e. example@example.com{' '}
+          </FormControlSmall>
         )}
       </label>
     </FormControl>
