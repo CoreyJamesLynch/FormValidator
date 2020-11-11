@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FormControl, { FormControlInput } from './StyledFormComponent';
+
 const UserInput = ({ errors, register }) => {
   return (
-    <div className="form-control">
+    <FormControl>
       <label htmlFor="username">
         Username
-        <input
+        <FormControlInput
           type="text"
           placeholder="Enter username"
           name="username"
@@ -33,7 +35,7 @@ const UserInput = ({ errors, register }) => {
           <small>Maximum length 15</small>
         )}
       </label>
-    </div>
+    </FormControl>
   );
 };
 
