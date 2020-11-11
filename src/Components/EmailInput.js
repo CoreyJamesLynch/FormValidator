@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import FormControl, { FormControlInput } from './StyledFormComponent';
+
 const EmailInput = ({ errors, register }) => {
   return (
-    <div className="form-control">
+    <FormControl>
       <label htmlFor="email">
         Email
-        <input
+        <FormControlInput
           type="text"
           placeholder="Enter email"
           name="email"
@@ -25,7 +27,7 @@ const EmailInput = ({ errors, register }) => {
           <small>Email must be valid i.e. example@example.com </small>
         )}
       </label>
-    </div>
+    </FormControl>
   );
 };
 
