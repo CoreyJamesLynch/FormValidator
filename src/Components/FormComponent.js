@@ -7,6 +7,7 @@ import UserInput from './UserInput';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import Password2Input from './Password2Input';
+import { FormContainer } from './StyledFormComponent';
 
 const FormWrapper = styled.body`
   background-color: rgb(58, 54, 54);
@@ -29,7 +30,7 @@ const FormComponent = () => {
 
   return (
     <FormWrapper>
-      <div className="container">
+      <FormContainer>
         <form className="form" onSubmit={handleSubmit(onSubmit)}>
           <h2>Register With Us</h2>
 
@@ -44,7 +45,7 @@ const FormComponent = () => {
 
           <button type="submit">Submit</button>
         </form>
-      </div>
+      </FormContainer>
     </FormWrapper>
   );
 };
