@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import FormControl, {
   FormControlInput,
   FormControlSmall,
+  FormControlLabel,
 } from './StyledFormComponent';
 
 const UserInput = ({ errors, register }) => {
   return (
     <FormControl>
-      <label htmlFor="username">
+      <FormControlLabel htmlFor="username">
         Username
         <FormControlInput
           type="text"
@@ -37,7 +38,7 @@ const UserInput = ({ errors, register }) => {
         {errors.username && errors.username.type === 'maxLength' && (
           <FormControlSmall>Maximum length 15</FormControlSmall>
         )}
-      </label>
+      </FormControlLabel>
     </FormControl>
   );
 };

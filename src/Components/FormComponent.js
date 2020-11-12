@@ -1,11 +1,17 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 
-import './FormComponent.css';
 import UserInput from './UserInput';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import Password2Input from './Password2Input';
+import {
+  FormContainer,
+  Form,
+  FormButton,
+  FormWrapper,
+  FormH2,
+} from './StyledFormComponent';
 
 const FormComponent = () => {
   const { register, handleSubmit, errors, watch } = useForm();
@@ -17,22 +23,24 @@ const FormComponent = () => {
   };
 
   return (
-    <div className="container">
-      <form className="form" onSubmit={handleSubmit(onSubmit)}>
-        <h2>Register With Us</h2>
+    <FormWrapper>
+      <FormContainer>
+        <Form onSubmit={handleSubmit(onSubmit)}>
+          <FormH2>Register With Us</FormH2>
 
-        <UserInput errors={errors} register={register} />
-        <EmailInput errors={errors} register={register} />
-        <PasswordInput errors={errors} register={register} />
-        <Password2Input
-          errors={errors}
-          register={register}
-          password={password.current}
-        />
+          <UserInput errors={errors} register={register} />
+          <EmailInput errors={errors} register={register} />
+          <PasswordInput errors={errors} register={register} />
+          <Password2Input
+            errors={errors}
+            register={register}
+            password={password.current}
+          />
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+          <FormButton type="submit">Submit</FormButton>
+        </Form>
+      </FormContainer>
+    </FormWrapper>
   );
 };
 
