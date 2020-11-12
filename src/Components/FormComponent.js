@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 
-import './FormComponent.css';
 import UserInput from './UserInput';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
@@ -11,6 +10,7 @@ import {
   Form,
   FormButton,
   FormWrapper,
+  FormH2,
 } from './StyledFormComponent';
 
 const FormComponent = () => {
@@ -26,7 +26,7 @@ const FormComponent = () => {
     <FormWrapper>
       <FormContainer>
         <Form onSubmit={handleSubmit(onSubmit)}>
-          <h2>Register With Us</h2>
+          <FormH2>Register With Us</FormH2>
 
           <UserInput errors={errors} register={register} />
           <EmailInput errors={errors} register={register} />

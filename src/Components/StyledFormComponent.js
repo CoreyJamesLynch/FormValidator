@@ -21,6 +21,12 @@ const Form = styled.form`
   padding: 30px 40px;
 `;
 
+const FormH2 = styled.h2`
+  text-align: center;
+  margin: 0 0 20px;
+  color: rgb(221, 187, 34);
+`;
+
 const FormButton = styled.button`
   cursor: pointer;
   background-color: #313a41;
@@ -49,6 +55,11 @@ const FormControlInput = styled.input`
   width: 100%;
   padding: 10px;
   font-size: 14px;
+  background-color: #313a41;
+  color: rgb(236, 207, 152);
+  &:focus {
+    outline: none;
+  }
 `;
 
 const FormControlSmall = styled.small`
@@ -67,4 +78,5 @@ export {
   Form,
   FormButton,
   FormWrapper,
+  FormH2,
 };
