@@ -1,23 +1,17 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 
 import './FormComponent.css';
 import UserInput from './UserInput';
 import EmailInput from './EmailInput';
 import PasswordInput from './PasswordInput';
 import Password2Input from './Password2Input';
-import { FormContainer, Form, FormButton } from './StyledFormComponent';
-
-const FormWrapper = styled.body`
-  background-color: rgb(58, 54, 54);
-  font-family: 'Raleway', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-  margin: 0;
-`;
+import {
+  FormContainer,
+  Form,
+  FormButton,
+  FormWrapper,
+} from './StyledFormComponent';
 
 const FormComponent = () => {
   const { register, handleSubmit, errors, watch } = useForm();

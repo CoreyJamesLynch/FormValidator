@@ -1,5 +1,15 @@
 import styled from 'styled-components';
 
+const FormWrapper = styled.body`
+  background-color: rgb(58, 54, 54);
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+`;
+
 const FormContainer = styled.div`
   background-color: rgb(15, 41, 80);
   border-radius: 8px;
@@ -46,4 +56,11 @@ const FormControlSmall = styled.small`
 `;
 
 export default FormControl;
-export { FormControlInput, FormControlSmall, FormContainer, Form, FormButton };
+export {
+  FormControlInput,
+  FormControlSmall,
+  FormContainer,
+  Form,
+  FormButton,
+  FormWrapper,
+};
