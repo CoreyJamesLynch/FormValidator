@@ -3,7 +3,7 @@
 ## About
 
 - Languages: Javascript, HTML, CSS
-- Framework: React
+- Framework: React, Styled Components
 - Library: React Hook Form
 
 ## Validations
