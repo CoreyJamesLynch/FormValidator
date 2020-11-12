@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import FormControl, {
   FormControlInput,
   FormControlSmall,
+  FormControlLabel,
 } from './StyledFormComponent';
 
 const Password2Input = ({ password, errors, register }) => {
   return (
     <FormControl>
-      <label htmlFor="password2">
+      <FormControlLabel htmlFor="password2">
         Confirm Password
         <FormControlInput
           type="password"
@@ -29,7 +30,7 @@ const Password2Input = ({ password, errors, register }) => {
         {errors.password2 && errors.password2.type === 'validate' && (
           <FormControlSmall>Passwords must match</FormControlSmall>
         )}
-      </label>
+      </FormControlLabel>
     </FormControl>
   );
 };

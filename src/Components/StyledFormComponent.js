@@ -39,6 +39,9 @@ const FormControl = styled.div`
   padding-bottom: 20px;
   position: relative;
 `;
+const FormControlLabel = styled.label`
+  color: rgb(221, 187, 34);
+`;
 
 const FormControlInput = styled.input`
   border: 2px solid rgb(236, 207, 152);
@@ -59,6 +62,7 @@ export default FormControl;
 export {
   FormControlInput,
   FormControlSmall,
+  FormControlLabel,
   FormContainer,
   Form,
   FormButton,

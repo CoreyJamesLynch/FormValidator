@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import FormControl, {
   FormControlInput,
   FormControlSmall,
+  FormControlLabel,
 } from './StyledFormComponent';
 
 const PasswordInput = ({ errors, register }) => {
   return (
     <FormControl>
-      <label htmlFor="password">
+      <FormControlLabel htmlFor="password">
         Password
         <FormControlInput
           type="password"
@@ -39,7 +40,7 @@ const PasswordInput = ({ errors, register }) => {
         {errors.password && errors.password.type === 'maxLength' && (
           <FormControlSmall>Max length 25</FormControlSmall>
         )}
-      </label>
+      </FormControlLabel>
     </FormControl>
   );
 };

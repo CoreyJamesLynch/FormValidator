@@ -4,12 +4,13 @@ import PropTypes from 'prop-types';
 import FormControl, {
   FormControlInput,
   FormControlSmall,
+  FormControlLabel,
 } from './StyledFormComponent';
 
 const EmailInput = ({ errors, register }) => {
   return (
     <FormControl>
-      <label htmlFor="email">
+      <FormControlLabel htmlFor="email">
         Email
         <FormControlInput
           type="text"
@@ -31,7 +32,7 @@ const EmailInput = ({ errors, register }) => {
             Email must be valid i.e. example@example.com{' '}
           </FormControlSmall>
         )}
-      </label>
+      </FormControlLabel>
     </FormControl>
   );
 };
