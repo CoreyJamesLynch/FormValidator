@@ -7,6 +7,23 @@ const FormContainer = styled.div`
   width: 500px;
 `;
 
+const Form = styled.form`
+  padding: 30px 40px;
+`;
+
+const FormButton = styled.button`
+  cursor: pointer;
+  background-color: #313a41;
+  border: 2px solid #13471c;
+  border-radius: 4px;
+  color: rgb(221, 187, 34);
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  margin-top: 20px;
+  width: 100%;
+`;
+
 const FormControl = styled.div`
   margin-bottom: 10px;
   padding-bottom: 20px;
@@ -29,4 +46,4 @@ const FormControlSmall = styled.small`
 `;
 
 export default FormControl;
-export { FormControlInput, FormControlSmall, FormContainer };
+export { FormControlInput, FormControlSmall, FormContainer, Form, FormButton };
